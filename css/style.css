@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.btn{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: coral;
+    color: white;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+   position: relative;   /*! use when u want to use z index or position its childrens into absolute */
+    overflow: hidden;
+}
+
+.btn span{
+    position: relative;
+    z-index: 1; /*! here we used position relative to set its z index */
+}
+
+.btn::before{
+    content: "";
+    position: absolute; /*! because we want them to position relative to their parent .btn which is has relative position*/
+    background-color: orangered;
+    width: 0;
+    height: 0;
+    left: var(--xPos);
+    top: var(--yPos);
+    translate:-50% -50%;  /*! repositions an element in the horizontal and/or vertical directions. age transform: traslate() use kora hoto...akhn sudhu traslate use kora hoy*/
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn:hover::before{
+    width: 300px;
+    height: 300px;
+}
